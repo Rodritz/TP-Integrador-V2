@@ -63,19 +63,20 @@ public class App {
 		Persona jugador2 = new Persona(2, "Pedro");
 		
 		
-		
 		//comienzo la lectura de los csv
 		
 		Connection conexion = null;
 		Statement consulta = null;
 		
 		List <Resultado> listaResultados;
-		//List <Pronostico> listaPronosticos;
-				
-		int puntajeTotal1 = 0;
-		int puntajeTotal2 = 0;
-		int aciertos1 = 0;
-		int aciertos2 = 0;
+						
+		int puntajeParticipante1 = 0;
+		int puntajeParticipante2 = 0;
+		int aciertosParticipante1 = 0;
+		int aciertosParticipante2 = 0;
+		int victoria = 3;
+		int empata = 1;
+		
 				
 				try {
 					//lectura del primer Csv
@@ -95,26 +96,31 @@ public class App {
 		            String sql;
 		            sql = "SELECT id, resultado_id, participante, equipo1, gana1, empata, gana2, equipo2 FROM tpintegrador.pronostico ";
 
-		            //En la variable listaPronosticos obtendremos las distintas filas que nos devolvió la base
-		            ResultSet listaPronosticos = consulta.executeQuery(sql);
+		            //En la variable resultadoss obtendremos las distintas filas que nos devolvió la base
+		            ResultSet resultados = consulta.executeQuery(sql);
 		            
-		            // Obtener las distintas filas de la consulta
-		            while (listaPronosticos.next()) {
-		                // Obtener el valor de cada columna
-		                int id = listaPronosticos.getInt("id");
-		                int resultado_id = listaPronosticos.getInt("resultado_id");
-		                String participante = listaPronosticos.getString("participante");
-		                String equipo1DB = listaPronosticos.getString("equipo1");
-		                String gana1 = listaPronosticos.getString("gana1");
-		                String empata = listaPronosticos.getString("empata");
-		                String gana2 = listaPronosticos.getString("gana2");
-		                String equipo2DB = listaPronosticos.getString("equipo2");
+		            List<Pronostico> listaPronosticos = new ArrayList<>();
+		            
+		            // recorremos cada linea de resultados
+		            while (resultados.next()) {
+		            	
+		                // Obtenemos el valor de cada columna y lo asignamos mediante setters a un objeto
+		            	Pronostico pronostico = new Pronostico();
+		                pronostico.setId(resultados.getInt("id"));		                
+		                pronostico.setResultadoId(resultados.getInt("resultado_id"));
+		                pronostico.setParticipante(resultados.getString("participante"));
+		                pronostico.setEquipo1(resultados.getString("equipo1"));
+		                pronostico.setGana1(resultados.getString("gana1"));
+		                pronostico.setEmpata(resultados.getString("empata"));
+		                pronostico.setGana2(resultados.getString("gana2"));
+		                pronostico.setEquipo2(resultados.getString("equipo2"));
+		                
+		                //agregamos los objetos a la listaPronosticos
+		                listaPronosticos.add(pronostico);
 
-		                // Mostrar los valores obtenidos de algunos campos
-		                System.out.print("ID: " + id);
-		                System.out.print(", participante: " + participante);
-		                System.out.print(", equipo1: " + equipo1DB);
-		                System.out.println(", equipo2: " + equipo2DB);		                
+		                
+		                //System.out.print(listaPronosticos);
+		                      
 		                
 		            }
 		            
@@ -131,16 +137,16 @@ public class App {
 
 							for (Pronostico pronostico : listaPronosticos) {
 								if(pronostico.getParticipante().equals(jugador1.getNombre())) {
-									if(resultado.getPartidoId().equals(pronostico.getPartidoId()) && pronostico.getGana1().equals(gana)) {
-										puntajeTotal1++;
-										aciertos1++;
-										System.out.println(jugador1.getNombre()+" suma 1 punto por acertar el pronostico del partido ");
+									if(resultado.getPartidoId().equals(pronostico.getResultadoId()) && pronostico.getGana1().equals(gana)) {
+										puntajeParticipante1 = puntajeParticipante1 + victoria;
+										aciertosParticipante1++;
+										System.out.println(jugador1.getNombre()+" suma "+ victoria +" punto/s por acertar el pronostico del partido ");
 									}
 								}else {
-									if(resultado.getPartidoId().equals(pronostico.getPartidoId()) && pronostico.getGana1().equals(gana)) {
-										puntajeTotal2++;	
-										aciertos2++;
-										System.out.println(jugador2.getNombre()+" suma 1 punto por acertar el pronostico del partido ");
+									if(resultado.getPartidoId().equals(pronostico.getResultadoId()) && pronostico.getGana1().equals(gana)) {
+										puntajeParticipante2 = puntajeParticipante2 + victoria;	
+										aciertosParticipante2++;
+										System.out.println(jugador2.getNombre()+" suma "+ victoria +" punto/s por acertar el pronostico del partido ");
 									}
 								}
 							}	
@@ -151,16 +157,16 @@ public class App {
 
 							for (Pronostico pronostico : listaPronosticos) {
 								if(pronostico.getParticipante().equals(jugador1.getNombre())) {
-									if(resultado.getPartidoId().equals(pronostico.getPartidoId()) && pronostico.getGana2().equals(gana)) {
-										puntajeTotal1++;
-										aciertos1++;
-										System.out.println(jugador1.getNombre()+" suma 1 punto por acertar el pronostico del partido ");
+									if(resultado.getPartidoId().equals(pronostico.getResultadoId()) && pronostico.getGana2().equals(gana)) {
+										puntajeParticipante1 = puntajeParticipante1 + victoria;
+										aciertosParticipante1++;
+										System.out.println(jugador1.getNombre()+" suma "+ victoria +" punto/s por acertar el pronostico del partido ");
 									}
 								}else {
-									if(resultado.getPartidoId().equals(pronostico.getPartidoId()) && pronostico.getGana2().equals(gana)) {
-										puntajeTotal2++;
-										aciertos2++;
-										System.out.println(jugador2.getNombre()+" suma 1 punto por acertar el pronostico del partido ");
+									if(resultado.getPartidoId().equals(pronostico.getResultadoId()) && pronostico.getGana2().equals(gana)) {
+										puntajeParticipante2 = puntajeParticipante2 + victoria;	
+										aciertosParticipante2++;
+										System.out.println(jugador2.getNombre()+" suma "+ victoria +" punto/s por acertar el pronostico del partido ");
 									}
 								}
 							}
@@ -170,29 +176,33 @@ public class App {
 								
 							for (Pronostico pronostico : listaPronosticos) {
 								if(pronostico.getParticipante().equals(jugador1.getNombre())) {
-									if(resultado.getPartidoId().equals(pronostico.getPartidoId()) && pronostico.getEmpata().equals(empateEq1Eq2)) {
-										puntajeTotal1++;
-										aciertos1++;
-										System.out.println(jugador1.getNombre()+" suma 1 punto por acertar el pronostico del partido ");
+									if(resultado.getPartidoId().equals(pronostico.getResultadoId()) && pronostico.getEmpata().equals(empateEq1Eq2)) {
+										puntajeParticipante1 = puntajeParticipante1 + empata;
+										aciertosParticipante1++;
+										System.out.println(jugador1.getNombre()+" suma "+ empata +" punto/s por acertar el pronostico del partido ");
 									}
 								}else {
 									
-									if(resultado.getPartidoId().equals(pronostico.getPartidoId()) && pronostico.getEmpata().equals(empateEq1Eq2)) {
-										puntajeTotal2++;
-										aciertos2++;
-										System.out.println(jugador2.getNombre()+" suma 1 punto por acertar el pronostico del partido ");
+									if(resultado.getPartidoId().equals(pronostico.getResultadoId()) && pronostico.getEmpata().equals(empateEq1Eq2)) {
+										puntajeParticipante2 = puntajeParticipante2 + empata;	
+										aciertosParticipante2++;
+										System.out.println(jugador2.getNombre()+" suma "+ empata +" punto/s por acertar el pronostico del partido ");
 									}
 								}
 								}
 								
 							}
 						}
+					// Esto se utiliza par cerrar la conexión con la base de datos
+		            resultados.close();
+		            consulta.close();
+		            conexion.close();
 				
-				// Execpción ante problemas de lectura del csv
+				// Excepción ante problemas de lectura del csv
 				} catch (IOException e) {
 					e.printStackTrace();					
 				} catch (SQLException se) {
-		                // Execpción ante problemas de conexión 
+		                // Excepción ante problemas de conexión 
 		                se.printStackTrace();		               
 		            } finally {
 		                // Esta sentencia es para que ante un problema con la base igual se cierren las conexiones
@@ -211,11 +221,11 @@ public class App {
 		            }
 				
 				//asignamos los puntajes obtenidos a los apostadores
-				jugador1.setPuntajeTotal(puntajeTotal1);
-				jugador1.setPronosticosAcertados(aciertos1);
+				jugador1.setPuntajeTotal(puntajeParticipante1);
+				jugador1.setPronosticosAcertados(aciertosParticipante1);
 				
-				jugador2.setPuntajeTotal(puntajeTotal2);
-				jugador2.setPronosticosAcertados(aciertos2);
+				jugador2.setPuntajeTotal(puntajeParticipante2);
+				jugador2.setPronosticosAcertados(aciertosParticipante2);
 				
 				System.out.println("el puntaje total de "+ jugador1.getNombre() + " por haber acertado "+jugador1.getPronosticosAcertados()+" pronosticos es: "+ jugador1.getPuntajeTotal());
 				System.out.println("el puntaje total de "+ jugador2.getNombre() + " por haber acertado "+jugador2.getPronosticosAcertados()+" pronosticos es: "+ jugador2.getPuntajeTotal());
