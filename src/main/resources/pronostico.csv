@@ -6,3 +6,11 @@
 2,Pedro,Polonia,,,x,Mexico
 3,Pedro,Argentina,x,,,Mexico
 4,Pedro,Arabia Saudita,,x,,Polonia
+5,Mariana,Argentina,,x,,Arabia Saudita
+6,Mariana,Polonia,x,,,Mexico
+7,Mariana,Argentina,x,,,Mexico
+8,Mariana,Arabia Saudita,,x,,Polonia
+5,Pedro,Argentina,,,x,Arabia Saudita
+6,Pedro,Polonia,,,x,Mexico
+7,Pedro,Argentina,x,,,Mexico
+8,Pedro,Arabia Saudita,x,,,Polonia
