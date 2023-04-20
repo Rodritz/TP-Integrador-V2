@@ -80,7 +80,8 @@ public class App {
 				
 				try {
 					//lectura del primer Csv
-					listaResultados = new CsvToBeanBuilder(new FileReader(args[0]))                      
+					listaResultados = new CsvToBeanBuilder(new FileReader(args[0]))    
+							
 							.withType(Resultado.class)
 							.build()
 							.parse();

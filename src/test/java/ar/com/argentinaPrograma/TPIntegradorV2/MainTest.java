@@ -62,6 +62,8 @@ public class MainTest {
 		int resultadoEsperado = 2;
 		assertEquals(resultadoEsperado, (puntajePartido1 + puntajePartido2));
 	}
+	
+	
 }
 	
 	
