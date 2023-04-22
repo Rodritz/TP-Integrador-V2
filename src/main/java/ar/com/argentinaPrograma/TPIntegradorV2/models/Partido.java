@@ -1,11 +1,9 @@
 package ar.com.argentinaPrograma.TPIntegradorV2.models;
 
+import ar.com.argentinaPrograma.TPIntegradorV2.models.EnumResultado;
 import lombok.*;
 
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -24,27 +22,7 @@ public class Partido {
 		this.equipo2 = equipo2;
 	}
 	
-	public String resultado(Equipo equipo) {
-		if(equipo.equals(equipo1)) {
-			if(golesEquipo1>golesEquipo2) {
-				return "ganador";
-			}else if(golesEquipo1<golesEquipo2) {
-				return "perdedor";
-			}else if(golesEquipo1==golesEquipo2) {
-				return "partido empatado";
-			}
-		/*}else if(equipo.equals(equipo2)) {
-			if(golesEquipo1>golesEquipo2) {
-				return "perdedor";
-			}else if(golesEquipo1<golesEquipo2) {
-				return "ganador";
-			}else if(golesEquipo1==golesEquipo2) {
-				return "partido empatado";
-			}*/
-		}
-		return "el partido llego a su fin";
 	
-	}
 }
 	
 

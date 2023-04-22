@@ -2,12 +2,9 @@ package ar.com.argentinaPrograma.TPIntegradorV2.models;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
 
 public class Equipo {
 	

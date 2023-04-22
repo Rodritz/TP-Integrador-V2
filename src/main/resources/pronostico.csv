@@ -1,3 +1,4 @@
+partidoId,participante,equipo1,gana1,empata,gana2,equipo2
 1,Mariana,Argentina,x,,,Arabia Saudita
 2,Mariana,Polonia,,x,,Mexico
 3,Mariana,Argentina,x,,,Mexico
@@ -6,11 +7,11 @@
 2,Pedro,Polonia,,,x,Mexico
 3,Pedro,Argentina,x,,,Mexico
 4,Pedro,Arabia Saudita,,x,,Polonia
-5,Mariana,Argentina,,x,,Arabia Saudita
-6,Mariana,Polonia,x,,,Mexico
-7,Mariana,Argentina,x,,,Mexico
-8,Mariana,Arabia Saudita,,x,,Polonia
-5,Pedro,Argentina,,,x,Arabia Saudita
-6,Pedro,Polonia,,,x,Mexico
-7,Pedro,Argentina,x,,,Mexico
-8,Pedro,Arabia Saudita,x,,,Polonia
+5,Mariana,Estados Unidos,,x,,Inglaterra
+6,Mariana,Nigeria,x,,,Brasil
+7,Mariana,Estados Unidos,x,,,Brasil
+8,Mariana,Inglaterra,,x,,Nigeria
+5,Pedro,Estados Unidos,,,x,Inglaterra
+6,Pedro,Nigeria,,,x,Brasil
+7,Pedro,Estados Unidos,x,,,Brasil
+8,Pedro,Inglaterra,x,,,Nigeria

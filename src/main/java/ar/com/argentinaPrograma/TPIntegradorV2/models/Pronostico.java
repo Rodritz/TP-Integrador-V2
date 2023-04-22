@@ -1,6 +1,9 @@
 package ar.com.argentinaPrograma.TPIntegradorV2.models;
 
+import ar.com.argentinaPrograma.TPIntegradorV2.models.EnumResultado;
+
 import lombok.*;
+
 
 @Data
 @AllArgsConstructor
@@ -18,9 +21,20 @@ public class Pronostico {
 	private String gana2;	
 	private String equipo2;
 	
-	//private Partido partido;
-	//private Equipo equipo;
-	//private EnumResultado resultado;
+	
+	public EnumResultado resultadoPronosticado() {
+		
+		if(this.gana1.equals("x"))
+			return EnumResultado.GANADOR;
+		
+		if(this.gana2.equals("x"))
+			return EnumResultado.PERDEDOR;
+		
+		return EnumResultado.EMPATE;
+	}
+
+
+	
 	
 	
 }

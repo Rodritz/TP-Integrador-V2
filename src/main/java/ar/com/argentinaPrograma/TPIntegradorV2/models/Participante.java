@@ -3,26 +3,25 @@ package ar.com.argentinaPrograma.TPIntegradorV2.models;
 import lombok.*;
 
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode
 
-public class Persona {
+public class Participante {
 	
 	//atributos
 	private int id;
 	private String nombre;
 	private int puntajeTotal;
-	private int pronosticosAcertados;
 	
-	public Persona(int id, String nombre) {
+	
+	public Participante(String nombre, int puntajeTotal) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
+		this.puntajeTotal = puntajeTotal;
 	}
+	
+	
 	
 	
 	
