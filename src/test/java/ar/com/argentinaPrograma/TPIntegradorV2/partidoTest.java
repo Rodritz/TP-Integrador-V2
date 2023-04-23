@@ -9,6 +9,7 @@ import ar.com.argentinaPrograma.TPIntegradorV2.models.EnumResultado;
 import ar.com.argentinaPrograma.TPIntegradorV2.models.Equipo;
 import ar.com.argentinaPrograma.TPIntegradorV2.models.Partido;
 
+
 public class partidoTest {
 
 	private Equipo equipo1;
@@ -19,40 +20,49 @@ public class partidoTest {
 	public void setUp() {
 		this.equipo1 = new Equipo(1, "Argentina","AFA" );
 		this.equipo2 = new Equipo(2, "Arabia Saudita", "AFC");
-		this.partido = new Partido(this.equipo1, 
-				this.equipo2, 3, 3);
+		this.partido = new Partido(this.equipo1,this.equipo2,2,2);
 	}
-/*
+	
+	
+
 	@Test
-	public void testPartidoGanadorPerdedor() {
+	public void testPartidoGanado() {
 
-		// nuestro escenario
-		this.partido.setGolesEquipo1(2);
-		this.partido.setGolesEquipo2(4);
+		// tomo los datos del @Before pero modifico la cant de goles de cada equipo
+		this.partido.setGolesEquipo1(3);
+		this.partido.setGolesEquipo2(1);
+		
+		EnumResultado resultado1 = partido.resultadoReal(equipo1);
 
-		// Procesar
-		EnumResultado resultadoObtenido1 = partido.resultado(this.equipo1);
-		EnumResultado resultadoObtenido2 = partido.resultado(this.equipo2);
+		assertEquals(EnumResultado.GANADOR, resultado1);
+	}
+	
+		@Test
+		public void testPartidoPerdido() {
 
-		// Evaluar
-		assertEquals(EnumResultado.PERDEDOR, resultadoObtenido1);
-		assertEquals(EnumResultado.GANADOR, resultadoObtenido2);
+			// tomo los datos del @Before pero modifico la cant de goles de cada equipo
+			this.partido.setGolesEquipo1(2);
+			this.partido.setGolesEquipo2(4);
+	
+			EnumResultado resultado2 = partido.resultadoReal(equipo1);
 
+			// Evaluar
+			assertEquals(EnumResultado.PERDEDOR, resultado2);
+				
+			
 	}
 	
 	@Test
 	public void testPartidoEmpatado() {
 
-		// nuestro escenario
-		// Esta armado
-
-		// Procesar
-		EnumResultado resultadoObtenido = partido.resultado(equipo1);
+		//toma los datos del @Before
+		
+		EnumResultado resultadoObtenido = partido.resultadoReal(equipo1);
 
 		// Evaluar
 		assertEquals(EnumResultado.EMPATE, resultadoObtenido);
 
-	}*/
+	}
 
 	
 

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ar.com.argentinaPrograma.TPIntegradorV2.models.CalculadoraDePuntajes;
 import ar.com.argentinaPrograma.TPIntegradorV2.models.Equipo;
 import ar.com.argentinaPrograma.TPIntegradorV2.models.LectorCsv;
 import ar.com.argentinaPrograma.TPIntegradorV2.models.LectorDB;
@@ -49,7 +50,7 @@ public class App {
 
 
 
-		//instancio a los apostadores con su puntaje inicial
+		//instancio a los participantes con su puntaje inicial
 		Participante jugador1 = new Participante("Mariana",0);
 		Participante jugador2 = new Participante("Pedro",0);
 
@@ -74,11 +75,11 @@ public class App {
 
 
 
-		/*CalculadoraDePuntajes calculadora = new CalculadoraDePuntajes();
-		  calculadora.calculadoraDePuntajes(listaResultados, listaPronosticos, puntajeTotal, jugador1, jugador2);*/
+		CalculadoraDePuntajes calculadora = new CalculadoraDePuntajes();
+		calculadora.calculadoraDePuntajes(listaResultados, listaPronosticos, puntajeTotal, jugador1, jugador2);
 
 
-		for(Pronostico pronostico : listaPronosticos) {
+		/*for(Pronostico pronostico : listaPronosticos) {
 			for(Resultado resultado : listaResultados) {
 				String participante= pronostico.getParticipante();   	
 				Equipo equipo = null;
@@ -93,7 +94,7 @@ public class App {
 				}
 			}			
 
-		}
+		}*/
 
 		//mostramos el puntaje obtenido por cada participante	
 		for (String participante : puntajeTotal.keySet()) {

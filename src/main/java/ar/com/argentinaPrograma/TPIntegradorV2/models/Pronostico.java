@@ -1,7 +1,5 @@
 package ar.com.argentinaPrograma.TPIntegradorV2.models;
 
-import ar.com.argentinaPrograma.TPIntegradorV2.models.EnumResultado;
-
 import lombok.*;
 
 
@@ -13,6 +11,8 @@ import lombok.*;
 public class Pronostico {
 	
 	private Integer id;
+	private Integer fase;
+	private Integer ronda;
     private Integer resultadoId;		
 	private String participante;	
 	private String equipo1;	

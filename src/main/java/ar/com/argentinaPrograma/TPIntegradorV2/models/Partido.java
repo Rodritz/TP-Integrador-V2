@@ -1,6 +1,5 @@
 package ar.com.argentinaPrograma.TPIntegradorV2.models;
 
-import ar.com.argentinaPrograma.TPIntegradorV2.models.EnumResultado;
 import lombok.*;
 
 @Data
@@ -21,7 +20,18 @@ public class Partido {
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
 	}
-	
+	public EnumResultado resultadoReal(Equipo equipo) {
+		if(this.golesEquipo1> this.golesEquipo2)
+			return EnumResultado.GANADOR;
+		
+		if(this.golesEquipo1< this.golesEquipo2)
+			return EnumResultado.PERDEDOR;
+		
+		return EnumResultado.EMPATE;
+		
+		
+		
+	}
 	
 }
 	

@@ -1,17 +1,17 @@
-partidoId,participante,equipo1,gana1,empata,gana2,equipo2
-1,Mariana,Argentina,x,,,Arabia Saudita
-2,Mariana,Polonia,,x,,Mexico
-3,Mariana,Argentina,x,,,Mexico
-4,Mariana,Arabia Saudita,,,x,Polonia
-1,Pedro,Argentina,x,,,Arabia Saudita
-2,Pedro,Polonia,,,x,Mexico
-3,Pedro,Argentina,x,,,Mexico
-4,Pedro,Arabia Saudita,,x,,Polonia
-5,Mariana,Estados Unidos,,x,,Inglaterra
-6,Mariana,Nigeria,x,,,Brasil
-7,Mariana,Estados Unidos,x,,,Brasil
-8,Mariana,Inglaterra,,x,,Nigeria
-5,Pedro,Estados Unidos,,,x,Inglaterra
-6,Pedro,Nigeria,,,x,Brasil
-7,Pedro,Estados Unidos,x,,,Brasil
-8,Pedro,Inglaterra,x,,,Nigeria
+fase,ronda,partidoId,participante,equipo1,gana1,empata,gana2,equipo2
+1,1,1,Mariana,Argentina,x,,,Arabia Saudita
+1,1,2,Mariana,Polonia,,x,,Mexico
+1,1,3,Mariana,Argentina,x,,,Mexico
+1,1,4,Mariana,Arabia Saudita,,,x,Polonia
+1,1,1,Pedro,Argentina,x,,,Arabia Saudita
+1,1,2,Pedro,Polonia,,,x,Mexico
+1,1,3,Pedro,Argentina,x,,,Mexico
+1,1,4,Pedro,Arabia Saudita,,x,,Polonia
+1,2,5,Mariana,Estados Unidos,,x,,Inglaterra
+1,2,6,Mariana,Nigeria,x,,,Brasil
+1,2,7,Mariana,Estados Unidos,x,,,Brasil
+1,2,8,Mariana,Inglaterra,,x,,Nigeria
+1,2,5,Pedro,Estados Unidos,,,x,Inglaterra
+1,2,6,Pedro,Nigeria,,,x,Brasil
+1,2,7,Pedro,Estados Unidos,x,,,Brasil
+1,2,8,Pedro,Inglaterra,x,,,Nigeria
