@@ -2,7 +2,6 @@ package ar.com.argentinaPrograma.TPIntegradorV2.models;
 
 import lombok.*;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
