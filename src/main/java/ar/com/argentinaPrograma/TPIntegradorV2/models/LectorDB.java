@@ -32,7 +32,7 @@ public class LectorDB {
         System.out.println("Creating statement...\n");
         consulta = conexion.createStatement();
         String sql;
-        sql = "SELECT id, resultado_id, participante, equipo1, gana1, empata, gana2, equipo2 FROM tpintegrador.pronostico ";
+        sql = "SELECT id, fase, ronda, resultado_id, participante, equipo1, gana1, empata, gana2, equipo2 FROM tpintegrador.pronostico ";
 
         //En la variable resultadoss obtendremos las distintas filas que nos devolvió la base
         ResultSet resultados = consulta.executeQuery(sql);        
@@ -42,7 +42,9 @@ public class LectorDB {
         	
             // Obtenemos el valor de cada columna y lo asignamos mediante setters a un objeto
         	Pronostico pronostico = new Pronostico();
-            pronostico.setId(resultados.getInt("id"));		                
+            pronostico.setId(resultados.getInt("id"));
+            pronostico.setFase(resultados.getInt("fase"));
+            pronostico.setRonda(resultados.getInt("ronda"));
             pronostico.setResultadoId(resultados.getInt("resultado_id"));
             pronostico.setParticipante(resultados.getString("participante"));
             pronostico.setEquipo1(resultados.getString("equipo1"));

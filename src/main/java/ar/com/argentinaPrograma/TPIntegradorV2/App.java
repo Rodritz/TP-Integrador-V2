@@ -71,6 +71,15 @@ public class App {
 		Map<String,Integer>puntajeRonda1 = new HashMap<>();
 		puntajeRonda1.put(jugador1.getNombre(),jugador1.getPuntajeRonda1());
 		puntajeRonda1.put(jugador2.getNombre(),jugador2.getPuntajeRonda1());
+		
+		//Creo la coleccion para guardar los pronosticos acertados en la segunda ronda
+		Map<String,Integer>puntajeRonda2 = new HashMap<>();
+		puntajeRonda2.put(jugador1.getNombre(),jugador1.getPuntajeRonda2());
+		puntajeRonda2.put(jugador2.getNombre(),jugador2.getPuntajeRonda2());
+		
+		Map<String,Integer>puntajeFase1 = new HashMap<>();
+		puntajeFase1.put(jugador1.getNombre(),jugador1.getPuntajeFase1());
+		puntajeFase1.put(jugador2.getNombre(),jugador2.getPuntajeFase1());
 
 
 		//comienzo la lectura del csv
@@ -84,39 +93,26 @@ public class App {
 		
 		//llamo al metodo calculadoraDePuntajes de la clase calculadora
 		CalculadoraDePuntajes calculadora = new CalculadoraDePuntajes();
-		calculadora.calculadoraDePuntajes(listaResultados, listaPronosticos, puntajeTotal, aciertos, puntajeRonda1, jugador1, jugador2);
+		calculadora.calculadoraDePuntajes(listaResultados, listaPronosticos, puntajeTotal, aciertos, puntajeRonda1, puntajeRonda2, puntajeFase1, jugador1, jugador2);
 
-
-		/*for(Pronostico pronostico : listaPronosticos) {
-			for(Resultado resultado : listaResultados) {
-				String participante= pronostico.getParticipante();   	
-				Equipo equipo = null;
-
-				//busco el mismo partido en ambos archivos		        		
-				if(resultado.getPartidoId().equals(pronostico.getResultadoId())) {
-					//chequeo el participante haya acertado el pronostico 
-					if(resultado.resultadoReal(equipo).equals(pronostico.resultadoPronosticado())) {
-						//suma un punto si acerto al valor del hashMap
-						puntajeTotal.put(participante, puntajeTotal.get(participante)+1);				
-					}
-				}
-			}			
-
-		}*/
-
-		//mostramos el puntaje obtenido por cada participante	
-		for (String participante : puntajeTotal.keySet()) {
-			System.out.println("Hasta el momento "+ participante + " obtuvo un total de " + puntajeTotal.get(participante)+ " puntos \n");
-		}	
+		
+		//mostramos los aciertos de la primer ronda
+		for (String participante : puntajeRonda1.keySet()) {
+			System.out.println(participante + " acerto " + puntajeRonda1.get(participante)+ " pronosticos en la primer ronda \n");
+		}
+		//mostramos los aciertos de la segunda ronda
+		for (String participante : puntajeRonda2.keySet()) {
+			System.out.println(participante + " acerto " + puntajeRonda2.get(participante)+ " pronosticos en la segunda ronda \n");
+		}
 		//mostramos los aciertos obtenidos por cada participante
 		for (String participante : aciertos.keySet()) {
-			System.out.println(participante + " lleva " + aciertos.get(participante)+ " aciertos \n");
+			System.out.println(participante + " logro un total de " + aciertos.get(participante)+ " aciertos \n");
 		}
-		
-		for (String participante : puntajeRonda1.keySet()) {
-			System.out.println("Hasta el momento "+ participante + " obtuvo un total de " + puntajeRonda1.get(participante)+ " puntos en la primer ronda \n");
-		}	
-		
+
+		//mostramos el puntaje total obtenido por cada participante	
+		for (String participante : puntajeTotal.keySet()) {
+			System.out.println("Hasta el momento "+ participante + " obtuvo un total de " + puntajeTotal.get(participante)+ " puntos \n");
+		}
 	}
 }
 

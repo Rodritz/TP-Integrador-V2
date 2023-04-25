@@ -16,6 +16,7 @@ public class Participante {
 	private int aciertos;
 	private int puntajeRonda1;
 	private int puntajeRonda2;
+	private int puntajeFase1;
 	
 	public Participante(String nombre, int puntajeTotal, int aciertos) {
 		super();
@@ -23,6 +24,7 @@ public class Participante {
 		this.puntajeTotal = puntajeTotal;
 		this.aciertos = aciertos;
 	}
+	
 	
 	
 	
