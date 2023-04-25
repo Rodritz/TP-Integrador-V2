@@ -16,8 +16,6 @@ import ar.com.argentinaPrograma.TPIntegradorV2.models.Pronostico;
 import ar.com.argentinaPrograma.TPIntegradorV2.models.Resultado;
 
 
-
-
 public class App {
 
 	public static void main(String[] args) {
@@ -53,30 +51,30 @@ public class App {
 		//instancio a los participantes con su puntaje inicial
 		Participante jugador1 = new Participante("Mariana",0,0);
 		Participante jugador2 = new Participante("Pedro",0,0);
-		
-	
+
+
 		//Creo la coleccion para guardar los participantes y el puntaje que van acumulando
 		Map<String,Integer>puntajeTotal = new HashMap<>();
-		
+
 		puntajeTotal.put(jugador1.getNombre(),jugador1.getPuntajeTotal());
 		puntajeTotal.put(jugador2.getNombre(),jugador2.getPuntajeTotal());
-		
+
 		//Creo la coleccion para guardar los participantes y los aciertos que van acumulando
 		Map<String,Integer>aciertos = new HashMap<>();
-		
+
 		aciertos.put(jugador1.getNombre(),jugador1.getAciertos());
 		aciertos.put(jugador2.getNombre(),jugador2.getAciertos());
-		
+
 		//Creo la coleccion para guardar los pronosticos acertados en la primer ronda
 		Map<String,Integer>puntajeRonda1 = new HashMap<>();
 		puntajeRonda1.put(jugador1.getNombre(),jugador1.getPuntajeRonda1());
 		puntajeRonda1.put(jugador2.getNombre(),jugador2.getPuntajeRonda1());
-		
+
 		//Creo la coleccion para guardar los pronosticos acertados en la segunda ronda
 		Map<String,Integer>puntajeRonda2 = new HashMap<>();
 		puntajeRonda2.put(jugador1.getNombre(),jugador1.getPuntajeRonda2());
 		puntajeRonda2.put(jugador2.getNombre(),jugador2.getPuntajeRonda2());
-		
+
 		Map<String,Integer>puntajeFase1 = new HashMap<>();
 		puntajeFase1.put(jugador1.getNombre(),jugador1.getPuntajeFase1());
 		puntajeFase1.put(jugador2.getNombre(),jugador2.getPuntajeFase1());
@@ -90,29 +88,12 @@ public class App {
 		LectorDB lectorArchivosDB = new LectorDB();
 		List<Pronostico> listaPronosticos = lectorArchivosDB.parsearDBPronosticos();
 
-		
+
 		//llamo al metodo calculadoraDePuntajes de la clase calculadora
 		CalculadoraDePuntajes calculadora = new CalculadoraDePuntajes();
 		calculadora.calculadoraDePuntajes(listaResultados, listaPronosticos, puntajeTotal, aciertos, puntajeRonda1, puntajeRonda2, puntajeFase1, jugador1, jugador2);
 
-		
-		//mostramos los aciertos de la primer ronda
-		for (String participante : puntajeRonda1.keySet()) {
-			System.out.println(participante + " acerto " + puntajeRonda1.get(participante)+ " pronosticos en la primer ronda \n");
-		}
-		//mostramos los aciertos de la segunda ronda
-		for (String participante : puntajeRonda2.keySet()) {
-			System.out.println(participante + " acerto " + puntajeRonda2.get(participante)+ " pronosticos en la segunda ronda \n");
-		}
-		//mostramos los aciertos obtenidos por cada participante
-		for (String participante : aciertos.keySet()) {
-			System.out.println(participante + " logro un total de " + aciertos.get(participante)+ " aciertos \n");
-		}
 
-		//mostramos el puntaje total obtenido por cada participante	
-		for (String participante : puntajeTotal.keySet()) {
-			System.out.println("Hasta el momento "+ participante + " obtuvo un total de " + puntajeTotal.get(participante)+ " puntos \n");
-		}
 	}
 }
 
