@@ -49,8 +49,7 @@ public class CalculadoraDePuntajes {
 		for (String participante : puntajeRonda1.keySet()) {
 			System.out.println(participante + " acerto " + puntajeRonda1.get(participante)+ " pronosticos en la primer ronda \n");
 
-			Integer valorR1 = puntajeRonda1.get(participante);
-			if (valorR1 == 4) {
+			if (puntajeRonda1.get(participante) == 4) {
 				puntajeTotal.put(participante, puntajeTotal.get(participante)+5);
 				puntajeFase1.put(participante, puntajeFase1.get(participante)+1);
 				System.out.println(participante + " sumo 5 puntos extras por acertar todos los pronosticos de la primer ronda \n");
@@ -61,22 +60,19 @@ public class CalculadoraDePuntajes {
 		for (String participante : puntajeRonda2.keySet()) {
 			System.out.println(participante + " acerto " + puntajeRonda2.get(participante)+ " pronosticos en la segunda ronda \n");
 
-			Integer valorR2 = puntajeRonda2.get(participante);{
-				if (valorR2 == 4) {
+				if (puntajeRonda2.get(participante) == 4) {
 					puntajeTotal.put(participante, puntajeTotal.get(participante)+5);
 					puntajeFase1.put(participante, puntajeFase1.get(participante)+1);
 					System.out.println(participante + " sumo 5 puntos extras por acertar todos los pronosticos de la segunda ronda \n");
-				}
 			}
 		}
 
 		//recorro la fase para ver cuantas rondas acerto y si suma puntos extras
 		for (String participante : puntajeFase1.keySet()) {
-			Integer valorF1 = puntajeFase1.get(participante);{
-				if (valorF1 == 2) {
+		
+				if (puntajeFase1.get(participante) == 2) {
 					puntajeTotal.put(participante, puntajeTotal.get(participante)+10);
 					System.out.println(participante + " sumo 10 puntos extras por acertar todos los pronosticos de la fase  \n");
-				} 
 			}
 		}
 
