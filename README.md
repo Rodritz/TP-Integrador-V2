@@ -1,6 +1,7 @@
 Trabajo Práctico Integrador - Argentina Programa 4.0 - Java Inicial
 
-Para el sig trabajo practico se utilizo la carga de datos por medio de archivo csv y my MySql.
+Para el sig trabajo practico se utilizo maven y una carga de datos por medio de archivo csv(resultado.csv) y para los pronosticos una conexion a la DB mediante MySql.
+Para correr el programa se necesita ejecutar lo sig:  java -jar target/TPIntegradorV2-0.0.1-SNAPSHOT.jar src/main/resources/resultado.csv
 
 Pronósticos Deportivos
 
